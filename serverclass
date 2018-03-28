@@ -6,17 +6,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
 
-/**
- * A multithreaded chat room server.  When a client connects the
- * server requests a username by sending the client the
- * text "SUBMITNAME", and keeps requesting a name until
- * a unique one is received.  After a client submits a unique
- * name, the server acknowledges with "NAMEACCEPTED".  Then
- * all messages from that client will be broadcast to all other
- * clients that have submitted a unique screen name.  The
- * broadcast messages are prefixed with "MESSAGE ".
- */
-
     /**
      * The port that the server listens on.
      */
@@ -69,14 +58,7 @@ import java.util.HashSet;
         public Handler(Socket socket) {
             this.socket = socket;
         }
-
-        /**
-         * Services this thread's client by repeatedly requesting a
-         * username until a unique one has been submitted, then
-         * acknowledges the name and registers the output stream for
-         * the client in a global set, then repeatedly gets inputs and
-         * broadcasts them.
-         */
+        
         public void run() {
             try {
 
